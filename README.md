@@ -93,15 +93,6 @@ Cybersecurity project focused on passive network traffic analysis and threat det
 
 ---
 
-# 🏆 Achievements
-
-🏅 **Top 25 / 250+ teams** — Tech Eximius Hackathon  
-🧠 **550+ DSA problems solved** across GFG & LeetCode  
-📊 **GFG Institute Rank 60 / 5000+**  
-🔐 **SIH 2026** — Cybersecurity project development
-
----
-
 # 📊 GitHub Stats:
 
 <div align="center">
