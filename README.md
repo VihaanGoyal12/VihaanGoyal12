@@ -119,16 +119,6 @@ Cybersecurity project focused on passive network traffic analysis and threat det
 
 ---
 
-# 🐍 Contribution Snake
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/VihaanGoyal12/VihaanGoyal12/output/github-contribution-grid-snake-dark.svg" />
-
-</div>
-
----
-
 <div align="center">
 
 ### 💡 Build. Learn. Solve. Repeat.
