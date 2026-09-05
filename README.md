@@ -113,7 +113,7 @@ Cybersecurity project focused on passive network traffic analysis and threat det
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=VihaanGoyal12&bg_color=0d1117&color=36BCF7&line=92FE9D&point=FFFFFF&area=true&hide_border=true" width="95%"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=VihaanGoyal12&theme=tokyo-night&hide_border=true&area=true" width="95%"/>
 
 </div>
 
