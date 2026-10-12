@@ -97,13 +97,13 @@ Cybersecurity project focused on passive network traffic analysis and threat det
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=VihaanGoyal12&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github" height="170"/>
+<img src="https://github-stats-extended.vercel.app/api?username=VihaanGoyal12&show_icons=true&theme=github_dark&hide_border=true" height="170"/>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VihaanGoyal12&layout=compact&theme=github_dark&hide_border=true" height="170"/>
+<img src="https://github-stats-extended.vercel.app/api/top-langs/?username=VihaanGoyal12&layout=compact&theme=github_dark&hide_border=true" height="170"/>
 
 <br><br>
 
-<img src="https://streak-stats.demolab.com?user=VihaanGoyal12&theme=github-dark-blue&hide_border=true" />
+<img src="https://streak-stats.demolab.com?user=VihaanGoyal12&theme=github-dark-blue&hide_border=true"/>
 
 </div>
 
