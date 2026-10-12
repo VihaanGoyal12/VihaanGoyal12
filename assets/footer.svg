@@ -1,0 +1,14 @@
+<svg width="100%" height="120" viewBox="0 0 854 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00C9FF"/>
+      <stop offset="35%" stop-color="#0077B5"/>
+      <stop offset="70%" stop-color="#0A2540"/>
+      <stop offset="100%" stop-color="#091428"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Reverse wave closing the footer -->
+  <path d="M0,60 Q213.5,10 427,45 T854,20 L854,120 L0,120 Z" fill="url(#footerGradient)" opacity="0.8"/>
+  <path d="M0,80 Q213.5,35 427,70 T854,50 L854,120 L0,120 Z" fill="#091428"/>
+</svg>

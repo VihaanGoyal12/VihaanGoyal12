@@ -2,7 +2,7 @@
 
   <!-- Header Banner -->
   <a href="https://github.com/VihaanGoyal12">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:091428,40:0A2540,75:0077B5,100:00C9FF&height=230&section=header&text=Vihaan%20Goyal&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Software%20Engineer%20%E2%80%A2%20AI%20%26%20Cybersecurity%20%E2%80%A2%20DSA%20Enthusiast&descAlignY=58&descSize=19" width="100%" alt="Vihaan Goyal Banner" />
+    <img src="assets/banner.svg" width="100%" alt="Vihaan Goyal Banner" />
   </a>
 
   <!-- Animated Typing Tagline -->
@@ -193,7 +193,9 @@ Real-time equity market tracking, telemetry dashboards, and financial analytics 
     <tr>
       <td align="center" colspan="2">
         <br/>
-        <img src="https://streak-stats.demolab.com?user=VihaanGoyal12&theme=tokyonight&hide_border=true&background=0D1117&ring=58A6FF&fire=FF9B00&currStreakLabel=79C0FF" alt="GitHub Streak" />
+        <a href="https://leetcode.com/u/VihaanGoyal31/" target="_blank">
+          <img src="https://leetcard.jacoblin.cool/VihaanGoyal31?theme=dark&font=Inter" alt="LeetCode Stats" />
+        </a>
       </td>
     </tr>
   </table>
@@ -221,7 +223,7 @@ Real-time equity market tracking, telemetry dashboards, and financial analytics 
   <br/>
 
   <a href="https://github.com/VihaanGoyal12">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,100:091428&height=120&section=footer" width="100%" alt="Footer Wave" />
+    <img src="assets/footer.svg" width="100%" alt="Footer Wave" />
   </a>
 
   <br/>

@@ -1,0 +1,45 @@
+<svg width="100%" height="230" viewBox="0 0 854 230" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#091428"/>
+      <stop offset="35%" stop-color="#0A2540"/>
+      <stop offset="70%" stop-color="#0077B5"/>
+      <stop offset="100%" stop-color="#00C9FF"/>
+    </linearGradient>
+    <linearGradient id="waveOverlay" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00C9FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#091428" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Deep space background -->
+  <rect width="854" height="230" fill="#091428"/>
+
+  <!-- Back wave -->
+  <path d="M0,0 L0,170 Q213,220 427,185 T854,195 L854,0 Z" fill="url(#waveGradient)" opacity="0.4"/>
+
+  <!-- Mid wave -->
+  <path d="M0,0 L0,155 Q213.5,130 427,165 T854,175 L854,0 Z" fill="url(#waveOverlay)" opacity="0.6"/>
+
+  <!-- Front wave -->
+  <path d="M0,0 L0,145 Q213.5,190 427,150 T854,165 L854,0 Z" fill="url(#waveGradient)"/>
+
+  <!-- Bottom highlight edge -->
+  <path d="M0,145 Q213.5,190 427,150 T854,165" fill="none" stroke="#00C9FF" stroke-width="2" opacity="0.6"/>
+
+  <!-- Content -->
+  <g text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+    <!-- Main Title -->
+    <text x="427" y="86" font-size="48" font-weight="800" fill="#ffffff" letter-spacing="1" filter="url(#shadow)">
+      Vihaan Goyal
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="427" y="126" font-size="18" font-weight="600" fill="#00D2FF" letter-spacing="0.5" filter="url(#shadow)">
+      Software Engineer • AI &amp; Cybersecurity • DSA Enthusiast
+    </text>
+  </g>
+</svg>
