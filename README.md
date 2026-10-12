@@ -191,10 +191,16 @@ Real-time equity market tracking, telemetry dashboards, and financial analytics 
       </td>
     </tr>
     <tr>
-      <td align="center" colspan="2">
+      <td align="center" width="50%">
         <br/>
         <a href="https://leetcode.com/u/VihaanGoyal31/" target="_blank">
           <img src="https://leetcard.jacoblin.cool/VihaanGoyal31?theme=dark&font=Inter" alt="LeetCode Stats" />
+        </a>
+      </td>
+      <td align="center" width="50%">
+        <br/>
+        <a href="https://www.geeksforgeeks.org/profile/vihaangoyal31" target="_blank">
+          <img src="https://gfgstatscard.vercel.app/vihaangoyal31" alt="GeeksforGeeks Stats" />
         </a>
       </td>
     </tr>
