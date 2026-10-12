@@ -25,11 +25,11 @@ jobs:
           import urllib.request
           import json
           import re
+          import xml.etree.ElementTree as ET
 
           user = "vihaangoyal31"
           headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
-          # 1. Fetch profile numbers from GFG
           score = 1529
           rank = 53
           total = 460
@@ -50,7 +50,6 @@ jobs:
           except Exception as e:
               print("GFG profile parse warning:", e)
 
-          # 2. Fetch difficulty breakdown
           basic = 24
           easy = 160
           medium = 255
@@ -75,76 +74,68 @@ jobs:
           hard_w = int((hard / total_solved) * 320) if total_solved else 0
 
           svg = f"""<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <style>
-                .bg {{ fill: #101010; stroke: #30363d; stroke-width: 1px; rx: 8px; }}
-                .text-primary {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: bold; fill: #f0f0f0; }}
-                .text-secondary {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 600; fill: #8b949e; }}
-                .gfg-brand {{ fill: #2F8D46; }}
-                .easy-color {{ fill: #00B8A3; stroke: #00B8A3; }}
-                .medium-color {{ fill: #FFC01E; stroke: #FFC01E; }}
-                .hard-color {{ fill: #FF375F; stroke: #FF375F; }}
-                .bar-bg {{ stroke: #252525; stroke-width: 4.5px; stroke-linecap: round; }}
-                .bar-fill {{ stroke-width: 4.5px; stroke-linecap: round; }}
-              </style>
-            </defs>
+  <defs>
+    <style>
+      .bg {{ fill: #101010; stroke: #30363d; stroke-width: 1px; rx: 8px; }}
+      .text-primary {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: bold; fill: #f0f0f0; }}
+      .text-secondary {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 600; fill: #8b949e; }}
+      .gfg-brand {{ fill: #2F8D46; }}
+      .easy-color {{ fill: #00B8A3; stroke: #00B8A3; }}
+      .medium-color {{ fill: #FFC01E; stroke: #FFC01E; }}
+      .hard-color {{ fill: #FF375F; stroke: #FF375F; }}
+      .bar-bg {{ stroke: #252525; stroke-width: 4.5px; stroke-linecap: round; }}
+      .bar-fill {{ stroke-width: 4.5px; stroke-linecap: round; }}
+    </style>
+  </defs>
 
-            <!-- Background Card -->
-            <rect width="499" height="199" x="0.5" y="0.5" class="bg"/>
+  <rect width="499" height="199" x="0.5" y="0.5" class="bg"/>
 
-            <!-- GFG Logo -->
-            <g transform="translate(20, 16) scale(0.85)">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="#2F8D46">
-                <path d="M21.45 14.315c-.143.28-.334.532-.565.745a3.691 3.691 0 0 1-1.104.695 4.51 4.51 0 0 1-3.116-.016 3.79 3.79 0 0 1-2.135-2.078 3.571 3.571 0 0 1-.13-.353h7.418a4.26 4.26 0 0 1-.368 1.008zm-11.99-.654a3.793 3.793 0 0 1-2.134 2.078 4.51 4.51 0 0 1-3.117.016 3.7 3.7 0 0 1-1.104-.695 2.652 2.652 0 0 1-.564-.745 4.221 4.221 0 0 1-.368-1.006H9.59c-.038.12-.08.238-.13.352zm14.501-1.758a3.849 3.849 0 0 0-.082-.475l-9.634-.008a3.932 3.932 0 0 1 1.143-2.348c.363-.35.79-.625 1.26-.809a3.97 3.97 0 0 1 4.484.957l1.521-1.49a5.7 5.7 0 0 0-1.922-1.357 6.283 6.283 0 0 0-2.544-.49 6.35 6.35 0 0 0-2.405.457 6.007 6.007 0 0 0-1.963 1.276 6.142 6.142 0 0 0-1.325 1.94 5.862 5.862 0 0 0-.466 1.864h-.063a5.857 5.857 0 0 0-.467-1.865 6.13 6.13 0 0 0-1.325-1.939A6 6 0 0 0 8.21 6.34a6.698 6.698 0 0 0-4.949.031A5.708 5.708 0 0 0 1.34 7.73l1.52 1.49a4.166 4.166 0 0 1 4.484-.958c.47.184.898.46 1.26.81.368.36.66.792.859 1.268.146.344.242.708.285 1.08l-9.635.008A4.714 4.714 0 0 0 0 12.457a6.493 6.493 0 0 0 .345 2.127 4.927 4.927 0 0 0 1.08 1.783c.528.56 1.17 1 1.88 1.293a6.454 6.454 0 0 0 2.504.457c.824.005 1.64-.15 2.404-.457a5.986 5.986 0 0 0 1.964-1.277 6.116 6.116 0 0 0 1.686-3.076h.273a6.13 6.13 0 0 0 1.686 3.077 5.99 5.99 0 0 0 1.964 1.276 6.345 6.345 0 0 0 2.405.457 6.45 6.45 0 0 0 2.502-.457 5.42 5.42 0 0 0 1.882-1.293 4.928 4.928 0 0 0 1.08-1.783A6.52 6.52 0 0 0 24 12.457a4.757 4.757 0 0 0-.039-.554z"/>
-              </svg>
-            </g>
+  <g transform="translate(20, 18) scale(1.15)">
+    <path fill="#2F8D46" d="M21.45 14.315c-.143.28-.334.532-.565.745a3.691 3.691 0 0 1-1.104.695 4.51 4.51 0 0 1-3.116-.016 3.79 3.79 0 0 1-2.135-2.078 3.571 3.571 0 0 1-.13-.353h7.418a4.26 4.26 0 0 1-.368 1.008zm-11.99-.654a3.793 3.793 0 0 1-2.134 2.078 4.51 4.51 0 0 1-3.117.016 3.7 3.7 0 0 1-1.104-.695 2.652 2.652 0 0 1-.564-.745 4.221 4.221 0 0 1-.368-1.006H9.59c-.038.12-.08.238-.13.352zm14.501-1.758a3.849 3.849 0 0 0-.082-.475l-9.634-.008a3.932 3.932 0 0 1 1.143-2.348c.363-.35.79-.625 1.26-.809a3.97 3.97 0 0 1 4.484.957l1.521-1.49a5.7 5.7 0 0 0-1.922-1.357 6.283 6.283 0 0 0-2.544-.49 6.35 6.35 0 0 0-2.405.457 6.007 6.007 0 0 0-1.963 1.276 6.142 6.142 0 0 0-1.325 1.94 5.862 5.862 0 0 0-.466 1.864h-.063a5.857 5.857 0 0 0-.467-1.865 6.13 6.13 0 0 0-1.325-1.939A6 6 0 0 0 8.21 6.34a6.698 6.698 0 0 0-4.949.031A5.708 5.708 0 0 0 1.34 7.73l1.52 1.49a4.166 4.166 0 0 1 4.484-.958c.47.184.898.46 1.26.81.368.36.66.792.859 1.268.146.344.242.708.285 1.08l-9.635.008A4.714 4.714 0 0 0 0 12.457a6.493 6.493 0 0 0 .345 2.127 4.927 4.927 0 0 0 1.08 1.783c.528.56 1.17 1 1.88 1.293a6.454 6.454 0 0 0 2.504.457c.824.005 1.64-.15 2.404-.457a5.986 5.986 0 0 0 1.964-1.277 6.116 6.116 0 0 0 1.686-3.076h.273a6.13 6.13 0 0 0 1.686 3.077 5.99 5.99 0 0 0 1.964 1.276 6.345 6.345 0 0 0 2.405.457 6.45 6.45 0 0 0 2.502-.457 5.42 5.42 0 0 0 1.882-1.293 4.928 4.928 0 0 0 1.08-1.783A6.52 6.52 0 0 0 24 12.457a4.757 4.757 0 0 0-.039-.554z"/>
+  </g>
 
-            <!-- User Info & Rank -->
-            <a href="https://www.geeksforgeeks.org/profile/{user}" target="_blank">
-              <text x="60" y="38" class="text-primary" font-size="20">{user}</text>
-            </a>
-            <text x="475" y="38" class="text-secondary" font-size="14" text-anchor="end">
-              Score: <tspan font-weight="bold" fill="#2F8D46">{score}</tspan> &nbsp;•&nbsp; Rank: <tspan font-weight="bold" fill="#f0f0f0">#{rank}</tspan>
-            </text>
+  <text x="58" y="38" class="text-primary" font-size="20">{user}</text>
+  <text x="475" y="38" class="text-secondary" font-size="14" text-anchor="end">Score: <tspan font-weight="bold" fill="#2F8D46">{score}</tspan>  •  Rank: <tspan font-weight="bold" fill="#f0f0f0">#{rank}</tspan></text>
 
-            <!-- Total Solved Circular Gauge -->
-            <g transform="translate(25, 68)">
-              <circle cx="45" cy="45" r="38" stroke="#252525" stroke-width="6" fill="none"/>
-              <circle cx="45" cy="45" r="38" stroke="#2F8D46" stroke-width="6" fill="none" stroke-dasharray="190 240" stroke-linecap="round" transform="rotate(-90 45 45)"/>
-              <text x="45" y="42" class="text-primary" font-size="26" text-anchor="middle" dominant-baseline="central">{total_solved}</text>
-              <text x="45" y="60" class="text-secondary" font-size="10" text-anchor="middle" letter-spacing="1">SOLVED</text>
-              <text x="45" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#2F8D46" text-anchor="middle">🔥 {streak} Day Streak</text>
-            </g>
+  <g transform="translate(25, 68)">
+    <circle cx="45" cy="45" r="38" stroke="#252525" stroke-width="6" fill="none"/>
+    <circle cx="45" cy="45" r="38" stroke="#2F8D46" stroke-width="6" fill="none" stroke-dasharray="190 240" stroke-linecap="round" transform="rotate(-90 45 45)"/>
+    <text x="45" y="42" class="text-primary" font-size="26" text-anchor="middle" dominant-baseline="central">{total_solved}</text>
+    <text x="45" y="60" class="text-secondary" font-size="10" text-anchor="middle" letter-spacing="1">SOLVED</text>
+    <text x="45" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#2F8D46" text-anchor="middle">🔥 {streak} Day Streak</text>
+  </g>
 
-            <!-- Solved Categories & Progress Bars -->
-            <g transform="translate(155, 76)">
-              <text x="0" y="0" class="text-primary easy-color" font-size="15">Easy</text>
-              <text x="320" y="0" class="text-secondary" font-size="14" text-anchor="end">
-                <tspan class="text-primary">{easy_total}</tspan> <tspan font-size="12" fill="#6e7681">({easy} + {basic} Basic)</tspan>
-              </text>
-              <line x1="0" y1="10" x2="320" y2="10" class="bar-bg"/>
-              <line x1="0" y1="10" x2="{easy_w}" y2="10" class="bar-fill easy-color"/>
-            </g>
+  <g transform="translate(155, 76)">
+    <text x="0" y="0" class="text-primary easy-color" font-size="15">Easy</text>
+    <text x="320" y="0" class="text-secondary" font-size="14" text-anchor="end">
+      <tspan class="text-primary">{easy_total}</tspan> <tspan font-size="12" fill="#6e7681">({easy} + {basic} Basic)</tspan>
+    </text>
+    <line x1="0" y1="10" x2="320" y2="10" class="bar-bg"/>
+    <line x1="0" y1="10" x2="{easy_w}" y2="10" class="bar-fill easy-color"/>
+  </g>
 
-            <g transform="translate(155, 116)">
-              <text x="0" y="0" class="text-primary medium-color" font-size="15">Medium</text>
-              <text x="320" y="0" class="text-secondary" font-size="14" text-anchor="end">
-                <tspan class="text-primary">{medium}</tspan> <tspan font-size="12" fill="#6e7681">Solved</tspan>
-              </text>
-              <line x1="0" y1="10" x2="320" y2="10" class="bar-bg"/>
-              <line x1="0" y1="10" x2="{med_w}" y2="10" class="bar-fill medium-color"/>
-            </g>
+  <g transform="translate(155, 116)">
+    <text x="0" y="0" class="text-primary medium-color" font-size="15">Medium</text>
+    <text x="320" y="0" class="text-secondary" font-size="14" text-anchor="end">
+      <tspan class="text-primary">{medium}</tspan> <tspan font-size="12" fill="#6e7681">Solved</tspan>
+    </text>
+    <line x1="0" y1="10" x2="320" y2="10" class="bar-bg"/>
+    <line x1="0" y1="10" x2="{med_w}" y2="10" class="bar-fill medium-color"/>
+  </g>
 
-            <g transform="translate(155, 156)">
-              <text x="0" y="0" class="text-primary hard-color" font-size="15">Hard</text>
-              <text x="320" y="0" class="text-secondary" font-size="14" text-anchor="end">
-                <tspan class="text-primary">{hard}</tspan> <tspan font-size="12" fill="#6e7681">Solved</tspan>
-              </text>
-              <line x1="0" y1="10" x2="320" y2="10" class="bar-bg"/>
-              <line x1="0" y1="10" x2="{hard_w}" y2="10" class="bar-fill hard-color"/>
-            </g>
-          </svg>
-          """
+  <g transform="translate(155, 156)">
+    <text x="0" y="0" class="text-primary hard-color" font-size="15">Hard</text>
+    <text x="320" y="0" class="text-secondary" font-size="14" text-anchor="end">
+      <tspan class="text-primary">{hard}</tspan> <tspan font-size="12" fill="#6e7681">Solved</tspan>
+    </text>
+    <line x1="0" y1="10" x2="320" y2="10" class="bar-bg"/>
+    <line x1="0" y1="10" x2="{hard_w}" y2="10" class="bar-fill hard-color"/>
+  </g>
+</svg>
+"""
+
+          # Validate XML before writing
+          ET.fromstring(svg)
 
           with open("assets/gfg-card.svg", "w") as f:
               f.write(svg)
