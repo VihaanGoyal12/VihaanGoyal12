@@ -134,6 +134,17 @@ const vihaanGoyal: SoftwareEngineer = {
 
 ## 🚀 Featured Projects
 
+### 📈 [EquiWatch](https://github.com/VihaanGoyal12/EquiWatch)
+> **High-Performance Equity Analytics & Monitoring**
+
+Real-time equity market tracking, telemetry dashboards, and financial analytics engine.
+
+- **Tech Stack:** `TypeScript` · `React` · `Node.js` · `Financial APIs`
+- [![View Project](https://img.shields.io/badge/View%20Repository-181717?style=flat-square&logo=github)](https://github.com/VihaanGoyal12/EquiWatch)
+
+---
+
+
 ### ⚡ [Pulse](https://github.com/VihaanGoyal12/Pulse)
 > **AI-Powered Engineering Issue Triage & Automation**
 
@@ -154,23 +165,6 @@ An intelligent assistant integrating Gmail, Google Calendar, and Notion to deliv
 
 ---
 
-### 🔐 [UniDetect / IPsecAI](https://github.com/VihaanGoyal12/IPsecAI)
-> **Next-Gen Network Telemetry & Threat Detection (SIH 2026)**
-
-A cybersecurity initiative focused on passive network traffic analysis, packet anomaly detection, and ML-driven security policy enforcement.
-
-- **Tech Stack & Exploration:** `Python` · `Zeek` · `TShark` · `XGBoost` · `Apache Kafka` · `FastAPI`
-- [![View Project](https://img.shields.io/badge/View%20Repository-181717?style=flat-square&logo=github)](https://github.com/VihaanGoyal12/IPsecAI)
-
----
-
-### 📈 [EquiWatch](https://github.com/VihaanGoyal12/EquiWatch)
-> **High-Performance Equity Analytics & Monitoring**
-
-Real-time equity market tracking, telemetry dashboards, and financial analytics engine.
-
-- **Tech Stack:** `TypeScript` · `React` · `Node.js` · `Financial APIs`
-- [![View Project](https://img.shields.io/badge/View%20Repository-181717?style=flat-square&logo=github)](https://github.com/VihaanGoyal12/EquiWatch)
 
 <br/>
 
